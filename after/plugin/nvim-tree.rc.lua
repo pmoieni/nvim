@@ -17,6 +17,9 @@ nt.setup({
   filters = {
     dotfiles = true,
   },
+  git = {
+    ignore = false,
+  }
 })
 
 local nvim_tree_events = require('nvim-tree.events')
