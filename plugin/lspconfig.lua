@@ -54,13 +54,18 @@ protocol.CompletionItemKind = {
   '', -- TypeParameter
 }
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
+
 -- Override the default configuration to be applied to all servers.
 lspconfig.util.default_config = vim.tbl_extend(
-    "force",
-    lspconfig.util.default_config,
-    {
-        on_attach = on_attach
-    }
+  "force",
+  lspconfig.util.default_config,
+  {
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
 )
 
 -- 3. Loop through all of the installed servers and set it up via lspconfig
@@ -69,12 +74,13 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  update_in_insert = false,
-  virtual_text = { spacing = 4, prefix = "●" },
-  severity_sort = true,
-}
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    underline = true,
+    update_in_insert = false,
+    virtual_text = { spacing = 4, prefix = "●" },
+    severity_sort = true,
+  }
 )
 
 -- Diagnostic symbols in the sign column (gutter)
@@ -83,6 +89,21 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+lspconfig.sumneko_lua.setup {
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false
+      }
+    }
+  }
+}
 
 vim.diagnostic.config({
   virtual_text = {
