@@ -1,3 +1,4 @@
+--[[
 local status, tn = pcall(require, "tokyonight")
 if (not status) then return end
 
@@ -57,4 +58,4 @@ vim.g.tokyonight_colors = {
 }
 
 vim.cmd[[colorscheme tokyonight]]
-
+--]]

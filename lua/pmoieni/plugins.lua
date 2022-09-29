@@ -8,7 +8,8 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
-  use 'folke/tokyonight.nvim' -- Theme
+  use 'marko-cerovac/material.nvim' -- Material theme
+  -- use 'folke/tokyonight.nvim' -- Tokyonight theme
   use 'nvim-lualine/lualine.nvim' -- Statusline
   use 'nvim-lua/plenary.nvim' -- Common utilities
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
