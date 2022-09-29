@@ -67,5 +67,12 @@ m.setup({
     }
 })
 
+local map = vim.keymap.set
+local mf = require('material.functions')
+
+map('n', '<leader>mf', mf.find_style)
+map('n', '<leader>mm', mf.toggle_style)
+map('n', '<leader>me', mf.toggle_eob)
+
 vim.g.material_style = "darker" -- Theme style ( can be 'oceanic' or 'palenight' or 'deep ocean' or 'lighter' or 'darker' )
 vim.cmd 'colorscheme material'
