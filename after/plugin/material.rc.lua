@@ -34,7 +34,7 @@ m.setup({
 
     disable = {
         colored_cursor = false, -- Disable the colored cursor
-        borders = true, -- Disable borders between verticaly split windows
+        borders = false, -- Disable borders between verticaly split windows
         background = false, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
         term_colors = false, -- Prevent the theme from setting terminal colors
         eob_lines = false -- Hide the end-of-buffer lines
@@ -72,7 +72,6 @@ local mf = require('material.functions')
 
 map('n', '<leader>mf', mf.find_style)
 map('n', '<leader>mm', mf.toggle_style)
-map('n', '<leader>me', mf.toggle_eob)
 
 vim.g.material_style = "darker" -- Theme style ( can be 'oceanic' or 'palenight' or 'deep ocean' or 'lighter' or 'darker' )
 vim.cmd 'colorscheme material'
