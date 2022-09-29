@@ -40,29 +40,31 @@ telescope.setup {
   },
 }
 
-vim.keymap.set('n', ';f',
+local map = vim.keymap.set
+
+map('n', ';f',
   function()
     builtin.find_files({
       no_ignore = false,
       hidden = true
     })
   end)
-vim.keymap.set('n', ';r', function()
+map('n', ';r', function()
   builtin.live_grep()
 end)
-vim.keymap.set('n', '\\\\', function()
+map('n', '\\\\', function()
   builtin.buffers()
 end)
-vim.keymap.set('n', ';t', function()
+map('n', ';t', function()
   builtin.help_tags()
 end)
-vim.keymap.set('n', ';;', function()
+map('n', ';;', function()
   builtin.resume()
 end)
-vim.keymap.set('n', ';e', function()
+map('n', ';e', function()
   builtin.diagnostics()
 end)
-vim.keymap.set("n", "sf", function()
+map("n", "sf", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
     cwd = telescope_buffer_dir(),
