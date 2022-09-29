@@ -1,5 +1,7 @@
 local status, saga = pcall(require, "lspsaga")
-if (not status) then return end
+if not status then
+	return
+end
 
 local map = vim.keymap.set
 
@@ -12,7 +14,7 @@ saga.init_lsp_saga()
 map("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
 -- Code action
-map({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+map({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 
 -- Rename
 map("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
@@ -35,14 +37,14 @@ map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
 -- Only jump to error
 map("n", "[E", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 map("n", "]E", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
 -- Outline
-map("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+map("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
 
 -- Hover Doc
 map("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })

@@ -1,7 +1,7 @@
-require('pmoieni.base')
-require('pmoieni.highlights')
-require('pmoieni.maps')
-require('pmoieni.plugins')
+require("pmoieni.base")
+require("pmoieni.highlights")
+require("pmoieni.maps")
+require("pmoieni.plugins")
 
 -- local has = vim.fn.has
 -- local is_mac = has "macunix"
