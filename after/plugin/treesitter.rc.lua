@@ -4,7 +4,7 @@ if (not status) then return end
 ts.setup {
   highlight = {
     enable = true,
-    disable = {},
+    disable = { 'help' },
   },
   indent = {
     enable = true,
