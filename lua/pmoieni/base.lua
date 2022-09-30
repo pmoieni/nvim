@@ -46,4 +46,4 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 vim.opt.formatoptions:append({ "r" })
 
 -- Enable clipboard
-vim.opt.clipboard:append({ "unnamedplus" })
+vim.opt.clipboard = "unnamedplus"

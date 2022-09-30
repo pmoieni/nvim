@@ -15,11 +15,13 @@ nt.setup({
 	},
 	renderer = {
 		group_empty = true,
-	},
-	filters = {
-		dotfiles = true,
+		highlight_git = true,
 	},
 	git = {
 		ignore = false,
+	},
+	diagnostics = {
+		enable = true,
+		show_on_dirs = true,
 	},
 })
