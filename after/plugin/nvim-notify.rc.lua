@@ -1,10 +1,10 @@
-local status, n = pcall(require, "notify")
+local status, notify = pcall(require, "notify")
 if not status then
 	return
 end
 
-n.setup({
+notify.setup({
 	background_colour = "#000000",
 })
 
-vim.notify = n
+vim.notify = notify

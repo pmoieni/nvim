@@ -1,9 +1,9 @@
-local status, nt = pcall(require, "nvim-tree")
+local status, tree = pcall(require, "nvim-tree")
 if not status then
 	return
 end
 
-nt.setup({
+tree.setup({
 	open_on_setup = true,
 	sort_by = "case_sensitive",
 	view = {
