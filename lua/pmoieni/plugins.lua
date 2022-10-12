@@ -8,6 +8,7 @@ vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
 	use("wbthomason/packer.nvim")
+	use("startup-nvim/startup.nvim") -- Startup page
 	use("marko-cerovac/material.nvim") -- Material theme
 	-- use 'folke/tokyonight.nvim' -- Tokyonight theme
 	use("nvim-lualine/lualine.nvim") -- Statusline
