@@ -14,11 +14,6 @@ packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim") -- Statusline
 	use("nvim-lua/plenary.nvim") -- Common utilities
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
-	use("hrsh7th/cmp-buffer") -- nvim-cmp source for buffer words
-	use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in LSP
-	use("hrsh7th/nvim-cmp") -- Completion
-	use("neovim/nvim-lspconfig") -- LSP
-	use("jose-elias-alvarez/null-ls.nvim") -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 	use("williamboman/mason.nvim")
 	use({
 		"williamboman/mason-lspconfig.nvim",
@@ -26,7 +21,6 @@ packer.startup(function(use)
 			require("mason-lspconfig").setup_handlers({})
 		end,
 	})
-	use({ "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" })
 	use("glepnir/lspsaga.nvim") -- LSP UIs
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -42,4 +36,28 @@ packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("kyazdani42/nvim-tree.lua")
 	use("rcarriga/nvim-notify")
+
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		requires = {
+			-- LSP Support
+			{ 'neovim/nvim-lspconfig' },
+			{ 'williamboman/mason.nvim' },
+			{ 'williamboman/mason-lspconfig.nvim' },
+
+			-- Autocompletion
+			{ 'hrsh7th/nvim-cmp' },
+			{ 'hrsh7th/cmp-buffer' },
+			{ 'hrsh7th/cmp-path' },
+			{ 'saadparwaiz1/cmp_luasnip' },
+			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'hrsh7th/cmp-nvim-lua' },
+
+			-- Snippets
+			{ 'L3MON4D3/LuaSnip' },
+			{ 'rafamadriz/friendly-snippets' },
+		}
+	}
+
+	use("jose-elias-alvarez/null-ls.nvim") -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 end)
