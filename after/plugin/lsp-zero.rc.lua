@@ -1,8 +1,8 @@
 local status, lsp = pcall(require, "lsp-zero")
 if not status then
-    return
+	return
 end
 
-lsp.preset('recommended')
-
+lsp.preset("recommended")
+lsp.nvim_workspace()
 lsp.setup()
