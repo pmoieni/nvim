@@ -9,24 +9,24 @@ telescope.setup({})
 
 local map = vim.keymap.set
 
-map("n", ";f", function()
+map("n", ";tf", function()
 	builtin.find_files({
 		no_ignore = false,
 		hidden = true,
 	})
 end)
-map("n", ";r", function()
+map("n", ";tg", function()
 	builtin.live_grep()
 end)
 map("n", "\\\\", function()
 	builtin.buffers()
 end)
-map("n", ";t", function()
+map("n", ";th", function()
 	builtin.help_tags()
 end)
 map("n", ";;", function()
 	builtin.resume()
 end)
-map("n", ";e", function()
+map("n", ";td", function()
 	builtin.diagnostics()
 end)
