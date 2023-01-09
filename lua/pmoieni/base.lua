@@ -25,7 +25,7 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.wrap = true -- Wrap lines
 vim.opt.backspace = { "start", "eol", "indent" }
-vim.opt.mouse = "a"
+vim.opt.mouse = nil
 
 -- Enable clipboard (doesn't work on WSL)
 -- vim.opt.clipboard = "unnamedplus"
